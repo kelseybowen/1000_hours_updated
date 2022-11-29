@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>1000 Hours</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="dashboard-header">
+            <h1>Welcome, {{ session["first_name"] }}!</h1>
+        </div>
+
+        <div class="main-content">
+            <h2>Goal Hours: {{ user_info.goal_hours }}</h2>
+            <h2>Hours Remaining: {{ user_info.hours_remaining }}</h2>
+            <h2>Total Hours: {{ user_info.hours_accrued }}</h2>
+
+            <table>
+                <thead>
+                    <th>Date</th>
+                    <th>Minutes</th>
+                </thead>
+                <tbody>
+                    {% for log in user_logs %}
+                    <tr>
+                        <td>{{ log.formatted_date }}</td>
+                        <td>{{ log.minutes }}</td>
+                        <td><a href="/edit_log/{{ log.id }}"></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="/edit_user/{{ user_info['id'] }}">Edit Goal</a>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+
+</html>

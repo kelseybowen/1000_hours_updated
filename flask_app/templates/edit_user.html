@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000 Hours</title>
+</head>
+<body>
+    <div class="container">
+        <div class="edit-header">
+            <h1>Edit Goal</h1>
+        </div>
+        <div class="main-content">
+            <form action="/update_user/{{ user_id }}" method="post">
+                <table>
+                    <tr>
+                        <td><label for="goal_hours">Goal:</label></td>
+                        <td><input type="text" name="goal_hours" value="{{ user_info.goal_hours }}"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
